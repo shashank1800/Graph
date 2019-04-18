@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
+import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -22,6 +23,22 @@ public class DrawGraph extends LinearLayout{
     public DrawGraph(Context context) {
         super(context);
         this.context = context;
+    }
+
+    public DrawGraph(Context context, AttributeSet attrs, ArrayList<Point> points, Paint paint, Bitmap bg, Context context1) {
+        super(context, attrs);
+        this.points = points;
+        this.paint = paint;
+        this.bg = bg;
+        this.context = context1;
+    }
+
+    public DrawGraph(Context context, AttributeSet attrs, int defStyleAttr, ArrayList<Point> points, Paint paint, Bitmap bg, Context context1) {
+        super(context, attrs, defStyleAttr);
+        this.points = points;
+        this.paint = paint;
+        this.bg = bg;
+        this.context = context1;
     }
 
     @SuppressLint("NewApi")
@@ -48,8 +65,6 @@ public class DrawGraph extends LinearLayout{
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         linearLayout.setBackground(new BitmapDrawable(bg));
     }
-
-
 
     private void DrawContinuousLines(Canvas canvas) {
 
