@@ -7,42 +7,21 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
-import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-@SuppressLint("ViewConstructor")
-public class DrawGraph extends LinearLayout{
-
+public class DrawGraph {
     private ArrayList<Point> points;
     private Paint paint;
     private Bitmap bg;
     private Context context;
 
     public DrawGraph(Context context) {
-        super(context);
         this.context = context;
     }
 
-    public DrawGraph(Context context, AttributeSet attrs, ArrayList<Point> points, Paint paint, Bitmap bg, Context context1) {
-        super(context, attrs);
-        this.points = points;
-        this.paint = paint;
-        this.bg = bg;
-        this.context = context1;
-    }
-
-    public DrawGraph(Context context, AttributeSet attrs, int defStyleAttr, ArrayList<Point> points, Paint paint, Bitmap bg, Context context1) {
-        super(context, attrs, defStyleAttr);
-        this.points = points;
-        this.paint = paint;
-        this.bg = bg;
-        this.context = context1;
-    }
-
     @SuppressLint("NewApi")
-    public void drawGraph(){
+    public BitmapDrawable drawGraph(){
         points = new ArrayList<>();
         paint = new Paint();
         bg = Bitmap.createBitmap(400,400,Bitmap.Config.ARGB_8888);
@@ -62,8 +41,7 @@ public class DrawGraph extends LinearLayout{
         paint.setColor(Color.BLUE);
         DrawContinuousLines(canvas);
 
-        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
-        linearLayout.setBackground(new BitmapDrawable(bg));
+        return new BitmapDrawable(bg);
     }
 
     private void DrawContinuousLines(Canvas canvas) {
@@ -85,6 +63,4 @@ public class DrawGraph extends LinearLayout{
         canvas.drawLine(0, 0, 0, height, paint);
         canvas.drawLine(0, 0,  width,0, paint);
     }
-
-
 }
