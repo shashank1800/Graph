@@ -25,7 +25,7 @@ Add the dependency
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		DrawGraph drawGraph = new DrawGraph(context);
+		DrawGraph drawGraph = new DrawGraph(this);
 		
 		//add min 2 points
 		drawGraph.addPoint(x1,y1);
