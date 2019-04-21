@@ -25,27 +25,21 @@ Add the dependency
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		DrawGraph drawGraph = new DrawGraph(this);
+		DrawGraph drawGraph = new DrawGraph();
 		
-		//add min 2 points
+		//add minimum 2 points
 		drawGraph.addPoint(x1,y1);
-		drawGraph.addPoint(x2,y2);
+		...
 		
 		BitmapDrawable drawable = drawGraph.drawGraph();
-		LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
-		linearLayout.setBackground(drawable);
-		
-		//set Co-ordinate color
-		drawGraph.setCoordinateColor(Color.RED);
-		
-		//set line color
-		drawGraph.setLineColor(Color.GREEN);
+		ImageView imageView = (LinearLayout)findViewById(R.id.imageView);
+		imageView.setBackground(drawable);
 	}
 		
 ### XML
-	<LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"/>
+	<ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:orientation="vertical"/>
 
