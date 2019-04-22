@@ -1,6 +1,7 @@
 package com.shashankbhat.graph;
 
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
 
@@ -43,24 +44,19 @@ public class DrawGraph {
         }
     }
 
-    public void setBackgroundColor(String color){
-        background.setColor(Color.parseColor(color));
-    }
-    public void setLineColor(String color){
-        line.setColor(Color.parseColor(color));
-    }
+    public void setBackgroundColor(String color){ background.setColor(Color.parseColor(color)); }
+    public void setLineColor(String color){ line.setColor(Color.parseColor(color)); }
+    public void setUnitLineColor(String color){ unitLine.setColor(Color.parseColor(color)); }
 
-    public void setUnitLineWidht(Float widht){
+    public void setUnitLineWidht(float widht){
         background.setStrokeWidth(widht);
     }
-    public void setLineWidth(Float widht){
-        line.setStrokeWidth(widht);
-    }
+    public void setLineWidth(float widht){ line.setStrokeWidth(widht); }
 
     @SuppressLint("NewApi")
     public BitmapDrawable drawGraph(){
 
-        recalculateXY();
+        reCalculateXY();
 
         bg = Bitmap.createBitmap(5000,5000,Bitmap.Config.ARGB_8888);
 
@@ -74,10 +70,10 @@ public class DrawGraph {
         UnitGraph(canvas);
         DrawContinuousLines(canvas);
 
-        return new BitmapDrawable(bg);
+        return new BitmapDrawable(Resources.getSystem(),bg);
     }
 
-    private void recalculateXY() {
+    private void reCalculateXY() {
         for(int i=0;i<points.size();i++){
             points.get(i).x = (5000/max_x)*points.get(i).x;
             points.get(i).y = (5000/max_y)*points.get(i).y;
