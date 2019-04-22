@@ -32,7 +32,7 @@ Add the dependency
 		...
 		
 		BitmapDrawable drawable = drawGraph.drawGraph();
-		ImageView imageView = (LinearLayout)findViewById(R.id.imageView);
+		ImageView imageView = (ImageView)findViewById(R.id.imageView);
 		imageView.setBackground(drawable);
 	}
 		
