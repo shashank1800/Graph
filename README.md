@@ -21,7 +21,7 @@ Add the dependency
 ## How do I use Graph?
 
 ### Java
-
+```
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -35,6 +35,7 @@ Add the dependency
 		ImageView imageView = (ImageView)findViewById(R.id.imageView);
 		imageView.setBackground(drawable);
 	}
+```
 		
 ### XML
 	<ImageView
