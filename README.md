@@ -38,9 +38,12 @@ Add the dependency
 ```
 		
 ### XML
+
+```
 	<ImageView
             android:id="@+id/imageView"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:orientation="vertical"/>
+```
 
