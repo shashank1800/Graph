@@ -1,4 +1,4 @@
-# Graph
+# Graph :chart_with_upwards_trend:
 [![](https://jitpack.io/v/shashank1800/Graph.svg)](https://jitpack.io/#shashank1800/Graph)
 
 ### Step 1. 
