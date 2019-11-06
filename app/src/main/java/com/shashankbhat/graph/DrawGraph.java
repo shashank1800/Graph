@@ -48,10 +48,12 @@ public class DrawGraph {
     public void setLineColor(String color){ line.setColor(Color.parseColor(color)); }
     public void setUnitLineColor(String color){ unitLine.setColor(Color.parseColor(color)); }
 
-    public void setUnitLineWidht(float widht){
-        background.setStrokeWidth(widht);
-    }
+    public void setUnitLineWidht(float widht){background.setStrokeWidth(widht);}
     public void setLineWidth(float widht){ line.setStrokeWidth(widht); }
+
+    public void makeUnitLineInvisible(Boolean value){
+    	if(value) unitLine.setStrokeWidth(0f);
+    }
 
     @SuppressLint("NewApi")
     public BitmapDrawable drawGraph(){
