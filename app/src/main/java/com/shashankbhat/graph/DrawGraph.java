@@ -13,6 +13,7 @@ public class DrawGraph {
     private Bitmap bg;
     private Canvas canvas;
     private float max_x=0,max_y=0;
+    private boolean unitLineVisibility = true;
 
     public DrawGraph() {
 
@@ -26,6 +27,7 @@ public class DrawGraph {
 
         unitLine.setColor(Color.parseColor("#6DAE9A"));
         line.setColor(Color.parseColor("#718DAD"));
+
         unitLine.setStrokeWidth(20f);
         line.setStrokeWidth(30f);
 
@@ -52,7 +54,7 @@ public class DrawGraph {
     public void setLineWidth(float widht){ line.setStrokeWidth(widht); }
 
     public void makeUnitLineInvisible(Boolean value){
-    	if(value) unitLine.setStrokeWidth(0f);
+    	if(value) unitLineVisibility = false;
     }
 
     @SuppressLint("NewApi")
@@ -69,7 +71,9 @@ public class DrawGraph {
         //draw background
         canvas.drawRect(0, 0, canvas.getHeight(), canvas.getWidth(), background);
 
-        UnitGraph(canvas);
+        if(unitLineVisibility)
+        	UnitGraph(canvas);
+        
         DrawContinuousLines(canvas);
 
         return new BitmapDrawable(Resources.getSystem(),bg);
